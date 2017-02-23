@@ -16,7 +16,6 @@ y=330
 hpixels=[] # set up an empty list for us to save our pixels
 spixels=[] # set up an empty list for us to save our pixels
 vpixels=[] # set up an empty list for us to save our pixels
-count=0 
 
 for filename in filelist:
    im=cv2.imread(filename)
@@ -28,14 +27,13 @@ for filename in filelist:
    im[x-10:x+10,x-10:x+10]=[255,0,0] 
    small_im=cv2.resize(im,size)
    cv2.imshow('Plant Image',small_im)
-   count=count+1 
    ch=cv2.waitKey(5) 
 
 plt.ylim(0,255) 
 #Plot hue in magenta "m"
-plt.plot(range(0,count),hpixels,"m") 
+plt.plot(hpixels,"m") 
 #Plot saturation in yellow  "y"
-plt.plot(range(0,count),spixels,"y") 
+plt.plot(spixels,"y") 
 #Plot value in black "k" 
-plt.plot(range(0,count),vpixels,"k") 
+plt.plot(vpixels,"k") 
 plt.show()

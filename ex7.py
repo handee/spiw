@@ -16,7 +16,6 @@ y=330
 rpixels=[] # set up an empty list for us to save our pixels
 bpixels=[] # set up an empty list for us to save our pixels
 gpixels=[] # set up an empty list for us to save our pixels
-count=0 
 
 for filename in filelist:
    im=cv2.imread(filename)
@@ -27,13 +26,12 @@ for filename in filelist:
    im[x-10:x+10,x-10:x+10]=[255,0,0] 
    small_im=cv2.resize(im,size)
    cv2.imshow('Plant Image',small_im)
-   count=count+1 
    ch=cv2.waitKey(5) 
 
 plt.ylim(0,255)
-plt.plot(range(0,count),rpixels,"r") 
+plt.plot(rpixels,"r") 
 # now plot the blue pixels bpixels against the numbers 0 to "count", 
 # using blue lines "b", and the green pixels using green lines "g"
-plt.plot(range(0,count),bpixels,"b") 
-plt.plot(range(0,count),gpixels,"g") 
+plt.plot(bpixels,"b") 
+plt.plot(gpixels,"g") 
 plt.show()
