@@ -1,7 +1,6 @@
 import cv2
 import sys
 import glob 
-import numpy as np #lets us manipulate numbers
 import matplotlib.pyplot as plt #lets us draw graphs
 
 cv2.namedWindow('Plant Image')
@@ -20,11 +19,11 @@ vpixels=[] # set up an empty list for us to save our pixels
 for filename in filelist:
    im=cv2.imread(filename)
    hsvim=cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
-   pixel=hsvim[x,y] 
+   pixel=hsvim[y,x] 
    vpixels.append(pixel[2]) # add pixel value to our list
    hpixels.append(pixel[0]) # add pixel hue to our list
    spixels.append(pixel[1]) # add pixel saturation to our list
-   im[x-10:x+10,x-10:x+10]=[255,0,0] 
+   im[y-10:y+10,x-10:x+10]=[255,0,0] 
    small_im=cv2.resize(im,size)
    cv2.imshow('Plant Image',small_im)
    ch=cv2.waitKey(5) 

@@ -15,9 +15,9 @@ y=330
 
 for filename in filelist:
    im=cv2.imread(filename)
-   pixel=im[x,y] # find the value of the image at x,y
+   pixel=im[y,x] # find the value of the image at x,y
    print (pixel) # print out what this pixel value is
-   im[x-10:x+10,x-10:x+10]=[255,0,0] # set that pixel value to be bright 
+   im[y-10:y+10,x-10:x+10]=[255,0,0] # set that pixel value to be bright 
                # blue so you can see where it is in the image
    small_im=cv2.resize(im,size)
    cv2.imshow('Plant Image',small_im)
